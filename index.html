@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Daniella!</title>
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #f67589, #f8a69d);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 2rem;
+      animation: fadeIn 1s ease-in-out;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: pop 0.5s ease-in-out;
+    }
+    .highlight {
+      color: #ff1493;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .message {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .collage-title {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #db0e74;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .cake-container {
+      margin: 2rem auto;
+    }
+
+    .cake {
+        border-radius: 15px;
+      width: 200px;
+      filter: drop-shadow(0 0 20px #fff);
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { filter: drop-shadow(0 0 10px #fff); }
+      100% { filter: drop-shadow(0 0 30px #ff69b4); }
+    }
+
+    .collage {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .collage img {
+      width: 100%;
+      max-width: 150px;
+      height: 150px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      padding: 1rem 2rem;
+      background-color: #db0e74;
+      color: black;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+      margin-top: 2rem;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff1493;
+    }
+    .lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #fff;
+}
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1rem;
+      }
+      .cake {
+        width: 150px;
+      }
+      .collage img {
+        max-width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, <span class="highlight">Daniella!</span> 🎉</h1>
+    <p class="message">From the best big bro ever 😎—You light up our world like these candles. Stay awesome!<br> May your day be filled with joy and laughter!</p> 
+
+    <button onclick="document.getElementById('bg-music').play()" style="padding: 10px 20px; font-size: 1.2rem; border-radius: 10px; background-color: pink; border: none; cursor: pointer;">
+  🎶 Tap for Music
+</button>
+
+<audio id="bg-music" loop style="display: none;">
+  <source src="SpotiDownloader.com - Happy - From _Despicable Me 2_ - Pharrell Williams.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+    <div class="cake-container">
+      <img src="giphy.gif" alt="Birthday Cake" class="cake" loading="eager"/>
+    </div> <br>
+
+    <p class="collage-title">Some pictures? Yes of course!</p><hr>
+    <div class="collage">
+      <img src="FB_IMG_1749120033332.jpg" alt="Daniella Pic 1" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="FB_IMG_1749120409526.jpg" alt="Daniella Pic 2" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="Snapchat-558538488.jpg" alt="Daniella Pic 3" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="Snapchat-2053281749.jpg" alt="Daniella Pic 4" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="IMG-20250630-WA0113.jpg" alt="Daniella Pic 5" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="IMG-20250630-WA0112.jpg" alt="Daniella Pic 6" loading="lazy" onclick="openLightbox(this.src)">
+    </div>
+
+    <!-- Lightboxes -->
+    <div id="img1" class="lightbox" onclick="location.href='#';">
+        <img src="FB_IMG_1749120033332.jpg" alt="Daniella Pic 1" />
+    </div>
+    
+    <div id="img2" class="lightbox" onclick="location.href='#';">
+        <img src="FB_IMG_1749120409526.jpg" alt="Daniella Pic 2" />
+    </div>
+    <div id="img3" class="lightbox" onclick="location.href='#';">
+        <img src="Snapchat-558538488.jpg" alt="Daniella Pic 2" />
+    </div>
+
+    <button onclick="surprise()">Click for a Surprise 🎁</button>
+  </div>
+
+  
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+  <footer><hr>
+    <p>&copy; 2025. All rights Reserved.</p>
+    <p>Made with ❤ By Daniel Odulate.</p>
+  </footer>
+
+  <script>
+  // Confetti on load
+  confetti({
+    particleCount: 150,
+    spread: 90,
+    origin: { y: 0.6 }
+  });
+
+  function surprise() {
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.4 }
+    });
+    alert("🎉 You are loved, Daniella! 🎉");
+  }
+
+  // Lightbox Logic
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+  // Fire confetti on page load
+    confetti({
+      particleCount: 150,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+
+    function surprise() {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.4 }
+      });
+      alert("🎉 You are loved, Daniella! 🎉");
+    }
+</script>
+    
+</body>
+</html>
